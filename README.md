@@ -68,8 +68,43 @@ dijob_003.root  dijob_007.root  dijob_011.root  dijob_015.root
 Congratulations! You can run the code by yourself already!
 
 ## Overview of Workflow of Our Analysis:
-Generate:
-<img width="1204" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/f219b407-2872-4ae8-8e0a-9126eaf89090">
+Structure:
+<img width="1165" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/015af255-84d4-4bd7-a797-7b4be5320a2b">
+
+Work flow:
+<img width="1078" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/65869559-61f8-47db-81a8-831f399ea871">
+
+Common bugs:
+<img width="1165" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/596434bf-cee4-427f-8975-b1d11b08139e">
+
+## The Path Needed Modified:
+
+1. pythia_sub.sh
+
+```Shell {.line-numbers}
+cd ~/CMSSW_10_6_4_patch1/src
+#cmsenv
+eval `scramv1 runtime -sh`
+cd ~/second_checkout/for_jiahao/HeavyIonAnalysis_dijet/TrackAnalysis/batch/
+echo PWD: $PWD
+../bin/PYTHIA_gen_di.exe  ./pythia_lists/list_cor_$1 0 1
+```
+
+- The first line `cd ~/CMSSW_10_6_4_patch1/src`
+depends on where your "CMSSW_10_6_4_patch1/" in your lxplus
+
+- The 4th line `cd ~/second_checkout/for_jiahao/HeavyIonAnalysis_dijet/TrackAnalysis/batch/`
+depends on where you sumbit jobs. I think you don't need to modify it usually.
+
+- The 5th line `../bin/PYTHIA_gen_di.exe' reflect the .exe you want to submit.
+
+
+
+
+
+
+
+
 
 
 
