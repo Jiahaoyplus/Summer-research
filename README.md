@@ -168,8 +168,70 @@ Compare V1, V2, V3 single jet and dijet result, data and MC. Hopefully you would
 
 
 
+### Off-diagnonal Analysis
+#### Generation
+##### Off:
+
+$$ r_2 = \frac{V_2(j_T^{trig},j_T^{assoc})}{\sqrt{V_2(j_T^{trig},j_T^{trig})}*\sqrt{V_2(j_T^{trig},j_T^{assoc})}} $$
+
+Recommendated jt: {0.3,0.7,1.3,2.0,3.0}
+
+<img width="1172" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/ff385135-dd01-40ea-9236-2d11fde98e4e">
+
+##### Off-diff:
+
+$$ v_2(j_T^{ref}) = \frac{V_2(j_T^{trig},j_T^{ref})}{\sqrt{V_2(j_T^{ref},j_T^{ref})}} $$
+
+Recommendated trig: {0.0,0.3,0.7,1.3,2.0,3.0} ref: 0.3-3.0
+Just add 0.0-0.3, 0.3-3.0 ptbin, then calculate one row(column)
+
+#### Analysis:
+You will get this:
+
+<img width="612" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/15cbed71-4f33-4cc5-b6b6-6c7094e3f072">
+
+<img width="398" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/37493e88-92df-44ab-80f9-fc9af62d5bfb">
+
+<img width="398" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/ed5b566f-33de-4294-a4e9-cb5f089c900a">
+
+If you have good statistics in Run3, you can try to show the Nch>95 or higher result.
+
+### Cumulant 
+#### Generation:
+
+Just follow [1701.03830](https://arxiv.org/abs/1701.03830) and [ATLAS-CONF-2018-008](https://cds.cern.ch/record/2318589/files/ATLAS-CONF-2018-008.pdf)
+
+You will see the inject efficency idea, which is similar to this: [PhysRevC.79.064909](https://journals.aps.org/prc/abstract/10.1103/PhysRevC.79.064909) but inject pesudo efficency to inject v2
+
+We hope the cumulant method can recover the injected v2 in the high multiplicity jet and we see the trend in c22. However, we can not see this in c24 because of no enough statistics yet.
+
+Inclusive, |deltaeta*|>2
+<img width="560" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/5498e4c7-052e-4be7-944a-9abdfe164f41">
+
+For c24, we should use bootstrap method to estimate its errors:
+The wiki link may be helpful: [bootstrap](https://en.wikipedia.org/wiki/Bootstrapping_(statistics))
+
+<img width="1010" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/6b6efb5a-c362-417a-af6c-c28b41a88810">
+
+I strongly suggest you to do parallel running with, for example, gnu, in your local machine (or other method, like condoring to the remote server, you can try it)
+
+This time you need to scp all the 19/80 jobs, then do bootstrap.
+If you would like to try the gnu, you can compile it first:
+
+```
+g++ analyze_code/bootstrap.cpp  `root-config --cflags --libs` -o analyze/bootstrap
+```
+
+Then parallel:
+```
+parallel -j 12 ./analyze/bootstrap  >test.txt    ::: 1 2 3 4 5 6 7 8 9 10 11 12
+```
+I usually take MC : 250 * 12=3000, and Data: 1000 * 10 = 10000
+
+Next you add up all the jobs and get the curves:
 
 
+<img width="557" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/24450be8-2566-4330-986f-6d3e7f697e0c">
 
 
 
