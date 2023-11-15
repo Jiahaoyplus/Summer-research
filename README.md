@@ -1,5 +1,23 @@
 # Summer-research
 The research mainly focuses on Fourier components in dijet system, the off-diagonal and cumulant analysis in single jet system
+- [Summer-research](#summer-research)
+  - [Make It Run Anyway](#make-it-run-anyway)
+  - [Overview of Workflow of Our Analysis:](#overview-of-workflow-of-our-analysis)
+  - [The Path Needed to Modify:](#the-path-needed-to-modify)
+  - [Code Explanation](#code-explanation)
+    - [Dijet](#dijet)
+      - [Generation](#generation)
+      - [Analysis](#analysis)
+        - [1D Fourier Fit:](#1d-fourier-fit)
+        - [Fourier\_Nch95\_with\_jt:](#fourier_nch95_with_jt)
+        - [Fourier\_component](#fourier_component)
+    - [Off-diagnonal Analysis](#off-diagnonal-analysis)
+      - [Generation](#generation-1)
+        - [Off:](#off)
+        - [Off-diff:](#off-diff)
+      - [Analysis:](#analysis-1)
+    - [Cumulant](#cumulant)
+      - [Generation:](#generation-2)
 
 ## Make It Run Anyway
 
