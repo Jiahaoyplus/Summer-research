@@ -45,6 +45,7 @@ python pythia_condor_2.py //Please note if PYTHIA_gen_di_2.C is your intended on
 
   - You can check the process by inputting `condor_q`:
   - You will get:
+
  ```
 -- Schedd: bigbird27.cern.ch : <188.185.16.120:9618?... @ 11/13/23 22:24:31
 OWNER   BATCH_NAME     SUBMITTED   DONE   RUN    IDLE  TOTAL JOB_IDS
@@ -53,7 +54,13 @@ Total for query: 19 jobs; 0 completed, 0 removed, 19 idle, 0 running, 0 held, 0 
 Total for jiahaoy: 19 jobs; 0 completed, 0 removed, 19 idle, 0 running, 0 held, 0 suspended
 Total for all users: 12926 jobs; 2180 completed, 2813 removed, 7246 idle, 111 running, 576 held, 0 suspended
  ```
-   
+> [!NOTE]
+> Please make sure you have enough log/ err/ out/ , or you should
+> 
+> <img width="532" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/e3c368f7-5a74-4065-99f2-4a848b546afe">
+
+
+
 
 7. When your jobs have all done, you can go to batch/pythia_batch_output/root_out_2 to check your .root files
 
