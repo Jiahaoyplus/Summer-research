@@ -228,14 +228,39 @@ If you would like to try the gnu, you can compile it first:
 ```
 g++ analyze_code/bootstrap.cpp  `root-config --cflags --libs` -o analyze/bootstrap
 ```
+> [!WARNING]
+> Please make sure here no all_add.root in your newroot/0.x-3.0
+> 
+> Do bootstrap first, then add the newroot to get all_add.root to get the mean value for each trackbin
 
-Then parallel:
+> [!NOTE]
+> You need modify these line:
+> ``` C++
+> #define INJ 80
+> std::string dir = Form("newroot/new_cumulant/0.0-3.0/3sub/%d", INJ);
+> gSystem->mkdir(Form("c24/0.0-3.0/3sub/%d", INJ), kTRUE);
+> TFile *file = new TFile(Form("c24/0.0-3.0/3sub/%d/%02d.root", INJ,index), "RECREATE");
+> // 250 per MC, I usually take 12 parajobs for MC
+> // 1000 per Data, I usually take 10 parajobs for data(80)
+> for(int i=0; i<1000; i++){
+> 	haddRandomFiles(80, index);
+> 	c24_3sub_single(hc24, index);
+> }
+> ```
+
+Then parallel
+MC:
 ```
 parallel -j 12 ./analyze/bootstrap  >test.txt    ::: 1 2 3 4 5 6 7 8 9 10 11 12
 ```
+Data:
+```
+parallel -j 10 ./analyze/bootstrap  >test.txt    ::: 1 2 3 4 5 6 7 8 9 10
+```
+
 I usually take MC : 250 * 12=3000, and Data: 1000 * 10 = 10000
 
-Next you add up all the jobs and get the curves:
+Next you add up all the jobs to get all.root in your c24/0.x-3.0/... and all_add.root in your newroot/0.x-3.0/... and get the curves:
 
 
 <img width="557" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/24450be8-2566-4330-986f-6d3e7f697e0c">
