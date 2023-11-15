@@ -231,9 +231,13 @@ You will see the inject efficency idea, which is similar to this: [PhysRevC.79.0
 We hope the cumulant method can recover the injected v2 in the high multiplicity jet and we see the trend in c22. However, we can not see this in c24 because of no enough statistics yet.
 
 Inclusive, |deltaeta*|>2
+
 <img width="560" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/5498e4c7-052e-4be7-944a-9abdfe164f41">
 
-For c24, we should use bootstrap method to estimate its errors:
+#### Analysis
+
+For c24 (c22 can also), we should use bootstrap method to estimate its errors:
+
 The wiki link may be helpful: [bootstrap](https://en.wikipedia.org/wiki/Bootstrapping_(statistics))
 
 <img width="1010" alt="image" src="https://github.com/Jiahaoyplus/Summer-research/assets/94129946/6b6efb5a-c362-417a-af6c-c28b41a88810">
@@ -241,6 +245,7 @@ The wiki link may be helpful: [bootstrap](https://en.wikipedia.org/wiki/Bootstra
 I strongly suggest you to do parallel running with, for example, gnu, in your local machine (or other method, like condoring to the remote server, you can try it)
 
 This time you need to scp all the 19/80 jobs, then do bootstrap.
+
 If you would like to try the gnu, you can compile it first:
 
 ```
